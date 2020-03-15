@@ -21,8 +21,10 @@ randomWord();
 //check to see what key has been pressed
 var userInput = document.getElementById("guessed-letters");
     document.onkeyup = function(event) {
-    userInput.textContent = event.key
+    userInput.textContent = event.key;
     };
+console.log(guessed);
+console.log(guessesLeft);
 //update guessed and guessesLeft
 
 //compare that letter with the letters of the word
@@ -30,5 +32,9 @@ var userInput = document.getElementById("guessed-letters");
 //if no match, display the letter in the lettersGuessed
 
 //if guessesLeft reaches 0, update losses
+if (guessesLeft === 0) {
+    losses += 1;
+    document.getElementById("losses").innerHTML = losses;
+}
 //if all letters are guessed, update wins
 //change display for the next randomized word
