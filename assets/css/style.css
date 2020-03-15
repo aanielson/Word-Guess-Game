@@ -2,7 +2,6 @@ h1 {
     font-family: 'Lateef', cursive;
     font-size: 180pt;
     line-height: 55%;
-    text-align: center;
 }
     
 h2 {
@@ -16,12 +15,25 @@ body {
     background-repeat: repeat;
 }
 header {
+    display: block;
     margin: auto;
     width: 700px;
     padding-top: 30px;
     padding-bottom: 60px;
 }
 .main {
+    display: block;
     margin: auto;
     width: 700px;
+    font-family: 'Lateef', cursive;
+    font-size: 20pt;
+    line-height: 1.6;
+}
+#main-image {
+    width: 400px;
+    float: left;
+    left: 0px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-top: 13px;
 }
