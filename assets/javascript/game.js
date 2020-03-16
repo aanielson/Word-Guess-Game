@@ -4,6 +4,8 @@ var wordBank = [
 ];
 //create variables for wins, losses, guesses made, guesses left, and letters guessed
 var word = "";
+var n;
+var blanks
 var wins = 0;
 var losses = 0;
 var guessed = 0;
@@ -14,8 +16,12 @@ var lettersGuessed = [];
 function randomWord() {
     word = wordBank[Math.floor(Math.random() * wordBank.length)];
     console.log(word);
+    n = word.length;
+    blanks = document.getElementById("blanks");
+    
 }
 randomWord();
+console.log(n)
 //display the number of underscores for the number of letters in the selected word
 
 //check to see what key has been pressed
