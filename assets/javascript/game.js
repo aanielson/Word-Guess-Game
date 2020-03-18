@@ -5,7 +5,6 @@ var wordBank = [
 //create variables for wins, losses, guesses made, guesses left, and letters guessed
 //choose a random word from the word bank
 var word = wordBank[Math.floor(Math.random() * wordBank.length)];
-var wordLettersArray = []
 var wins = 0;
 var losses = 0;
 
@@ -22,22 +21,18 @@ var wordArr = displayWord();
 function displayWord () {
     var wordArray = word.split(" ");
     for(var x = 0; x < wordArray.length; x++){
-        
         blanks.innerHTML += '<span id="letter-'+x+'"> _ </span>';
     }
     return wordArray;
-    //still don't know how to update word to blank spaces instead of actually displaying the word
 };
 console.log(word);
 
 //check to see what key has been pressed
-//update guessed and guessesLeft
 var userInput = document.getElementById("guessed-letters");
 document.onkeyup = function(event) {
     lettersGuessed.push(" " + event.key);
     userInput.innerHTML = lettersGuessed;
         
-
     // The letter could exist
         // letter gets replaced
         // we win
@@ -56,39 +51,46 @@ document.onkeyup = function(event) {
             if (pos != -1) {
             var replaceText = document.getElementById("letter-" + pos);
             replaceText.innerHTML = event.key;
+            guessed++;
             }
-            console.log("counter");
         }
-    } else {
-        // if there are no guesses left, then we lose
-        if (guessesLeft === 0) {
-            losses += 1;
+        document.getElementById("guesses").innerHTML = guessed;
+        //if guessed === number of items in the array
+            //wins++ and reset game
+        
+    }  else {
+        // The letter doesn't exist
+        // no guessed left - we lose
+        // guesses left - we lose a guess
+        if (guessesLeft < 1) {
+            losses++;
             document.getElementById("losses").innerHTML = losses;
-
+            reset();
         }
         // else there are guesses left, just remove a guess
          else { 
             guessesLeft--; 
             guessesLeftDiv.innerHTML = guessesLeft;
-        }
+        }  
     }
-
-    // The letter doesn't exist
-        // no guessed left - we lose
-        // guesses left - we lose a guess
-
-
-
-
-
-    //still can't figure out how to increase and decrease the values based off of the number of times a key is pressed
-    for (var i = 0; i < lettersGuessed.length; i++) {
-        guessed++;
-        
-        
-    };
+    if (guessed >= wordArr.length) {
+        wins++;
+        document.getElementById("wins").innerHTML = wins;
+        reset();
+    }
 };
-
+//function for reseting the whole page
+function reset() {
+    guessed = 0;
+    document.getElementById("guesses").innerHTML = guessed;
+    guessesLeft = 15;
+    document.getElementById("guesses-left").innerHTML = guessesLeft;
+    lettersGuessed = [];
+    document.getElementById("guessed-letters").innerHTML = lettersGuessed;
+    word = wordBank[Math.floor(Math.random() * wordBank.length)];
+    blanks.innerHTML = "";
+    displayWord();
+}
 console.log(guessed);
 console.log(guessesLeft);
 
