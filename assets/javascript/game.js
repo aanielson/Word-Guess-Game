@@ -49,12 +49,16 @@ document.onkeyup = function(event) {
     if(doesExist > -1){
         var pos = 0;
         var counter = -1;
-        console.log("break 2");
-
-
-        var replaceText = document.getElementById("letter-"+doesExist);
-        replaceText.innerHTML = event.key;
         
+        while (pos != -1){
+            pos = wordArr.indexOf(event.key, counter+1);
+            counter = pos;
+            if (pos != -1) {
+            var replaceText = document.getElementById("letter-" + pos);
+            replaceText.innerHTML = event.key;
+            }
+            console.log("counter");
+        }
     } else {
         // if there are no guesses left, then we lose
         if (guessesLeft === 0) {
