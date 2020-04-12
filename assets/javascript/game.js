@@ -76,7 +76,7 @@ document.onkeyup = function(event) {
             // The letter doesn't exist
             // no guessed left - we lose
             // guesses left - we lose a guess
-            if (guessesLeft < 1) {
+            if (guessesLeft <= 1) {
                 losses++;
                 document.getElementById("losses").innerHTML = losses;
                 reset();
