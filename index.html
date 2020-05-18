@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Reset styling-->
     <link rel="stylesheet" href="assets/css/reset.css">
+    <!--Bootstrap link-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--My Stylesheet-->
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Lateef|Pinyon+Script&display=swap" rel="stylesheet">    
     <title>Jane Austen Hangman</title>
@@ -14,22 +18,52 @@
         <h2>Jane Austen Style</h2>
     </header>
    <div class="main">
-       <img src="assets/images/jane_austen.jpg" alt="Jane Austen" id="main-image"> 
-       <div class="text">
-            <h3>Press any key to start!</h3>
-            <h3>Current Word</h3>
-            <p id="blanks"></p>
-            <br>
-            <p>Wins: <div id="wins"></div></p>
-            <p>Losses: <div id="losses"></div></p>
-            <br>
-            <p>Guesses Left: <div id="guesses-left"></div></p>
-            <p>Guesses Made: <div id="guesses"></div></p>
-            <br>
-            <p>Letters already guessed:</p>
-            <p id="guessed-letters"></p>
-            <br>
-        </div>
+       <div class="row">
+           <div class="col-md-7">
+                <img src="assets/images/jane_austen.jpg" alt="Jane Austen" id="main-image"> 
+           </div>
+           <div class="col-md-5 text">
+               <div class="row">
+                   <div class="col-md-12">
+                       <h3>Press any key to start!</h3>
+                   </div>
+               </div>
+               <div class="row">
+                    <div class="col-md-12">
+                        <h3>Current Word</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p id="blanks"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Wins: <span id="wins"></span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Losses: <span id="losses"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Guesses Left: <span id="guesses-left"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Guesses Made: <span id="guesses"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                       <p>Letters already guessed:</p>
+                        <p id="guessed-letters"></p>
+                    </div>
+                </div>
+           </div>
+       </div>
    </div>
 <script src="assets/javascript/game.js"></script>
 </body>
